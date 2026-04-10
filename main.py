@@ -15,16 +15,16 @@ from email.mime.multipart import MIMEMultipart
 #  CONFIGURATION — edit these values
 # ─────────────────────────────────────────────
 
-account_id    = os.environ.get("ACCOUNT_ID")
-account_mid   = os.environ.get("ACCOUNT_MID")
-account_token = os.environ.get("ACCOUNT_TOKEN")
+ACCOUNT_ID    = os.environ.get("ACCOUNT_ID")
+ACCOUNT_MID   = os.environ.get("ACCOUNT_MID")
+ACCOUNT_TOKEN = os.environ.get("ACCOUNT_TOKEN")
 
 COOKIE = "; ".join([
-    f"ltuid_v2={account_id}",
-    f"ltoken_v2={account_token}",
-    f"ltmid_v2={account_mid}",
-    f"account_id_v2={account_id}",
-    f"account_mid_v2={account_mid}",
+    f"ltuid_v2={ACCOUNT_ID}",
+    f"ltoken_v2={ACCOUNT_TOKEN}",
+    f"ltmid_v2={ACCOUNT_MID}",
+    f"account_id_v2={ACCOUNT_ID}",
+    f"account_mid_v2={ACCOUNT_MID}",
 ])
 
 # Toggle which games to check in for
@@ -51,9 +51,9 @@ EMAIL_RECIPIENT    = EMAIL_SENDER
 #  GAME CONFIGS
 # ─────────────────────────────────────────────
 
-GAME_GI_AID  = os.environ.get("GAME_GI_AID")
-GAME_HSR_AID = os.environ.get("GAME_HSR_AID")
-GAME_ZZZ_AID = os.environ.get("GAME_ZZZ_AID")
+GAME_GI_AID  = "e202102251931481"   # Genshin Impact — global constant
+GAME_HSR_AID = "e202303301540311"   # Honkai: Star Rail — global constant
+GAME_ZZZ_AID = "e202406031448091"   # Zenless Zone Zero — global constant
 
 GAME_CONFIGS = {
     "genshin": {
