@@ -117,6 +117,8 @@ To change the schedule, edit `.github/workflows/ci-cd.yml`:
 
 > GitHub cron runs in UTC. The schedule may be delayed up to 60 minutes during high traffic periods.
 
+> ⚠️ **Important:** GitHub automatically disables scheduled workflows if the repository has **no activity for 60 days**. You will receive an email from GitHub before it is disabled. To re-enable, go to the **Actions tab → HoYoLAB Daily Check-In → Enable workflow**.
+
 ---
 
 ## Email Notifications
