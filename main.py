@@ -177,7 +177,7 @@ def check_in(game_key: str):
 
 
 def run_checkins() -> None:
-    if not account_id or not account_mid or not account_token:
+    if not ACCOUNT_ID or not ACCOUNT_MID or not ACCOUNT_TOKEN:
         print("=" * 55)
         print("  ⚠️  Missing account secrets!")
         print("  Ensure ACCOUNT_ID, ACCOUNT_MID, ACCOUNT_TOKEN")
