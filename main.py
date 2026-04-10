@@ -34,10 +34,9 @@ GAMES = {
     "zzz":      True,   # Zenless Zone Zero
 }
 
-# Optional: your browser's User-Agent (helps avoid blocks)
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 
-# Delay between game check-ins (seconds) — avoids rate limiting
+# avoids rate limiting
 DELAY_BETWEEN = 5
 
 # ─────────────────────────────────────────────
@@ -179,12 +178,12 @@ def check_in(game_key: str):
 
 def run_checkins() -> None:
     if not account_id or not account_mid or not account_token:
-		print("=" * 55)
-		print("  ⚠️  Missing account secrets!")
-		print("  Ensure ACCOUNT_ID, ACCOUNT_MID, ACCOUNT_TOKEN")
-		print("  are set in your GitHub environment secrets.")
-		print("=" * 55)
-		sys.exit(1)
+        print("=" * 55)
+        print("  ⚠️  Missing account secrets!")
+        print("  Ensure ACCOUNT_ID, ACCOUNT_MID, ACCOUNT_TOKEN")
+        print("  are set in your GitHub environment secrets.")
+        print("=" * 55)
+        sys.exit(1)
 
     enabled = [k for k, v in GAMES.items() if v]
     if not enabled:
