@@ -1,0 +1,26 @@
+# .github/workflows/keepalive.yml
+name: Keep Alive
+
+on:
+  schedule:
+    - cron: "0 12 1 * *"
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Re-enable check-in workflow
+        run: |
+          curl -X PUT \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/actions/workflows/ci-cd.yml/enable
+
+      - name: Empty commit to keep repo active
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          git commit --allow-empty -m "chore: keep workflows alive"
+          git push
