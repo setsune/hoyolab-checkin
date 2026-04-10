@@ -1,0 +1,36 @@
+# .github/workflows/ci-cd.yml
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 19 * * *"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run script
+        env:
+          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+          ACCOUNT_MID: ${{ secrets.ACCOUNT_MID }}
+          ACCOUNT_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          GAME_GI_AID: ${{ secrets.GAME_GI_AID }}
+          GAME_HSR_AID: ${{ secrets.GAME_HSR_AID }}
+          GAME_ZZZ_AID: ${{ secrets.GAME_ZZZ_AID }}
+          EMAIL: ${{ vars.EMAIL }}
+        run: python main.py
