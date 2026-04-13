@@ -183,7 +183,7 @@ Your cookie has expired. Repeat step 3 to get a fresh cookie and update your Git
 GitHub disables scheduled workflows after 60 days of repository inactivity. Go to Actions tab and click **Enable workflow**.
 
 **`Missing account secrets` error**
-One or more secrets are not set in your GitHub environment. Verify all secrets exist under **Settings → Environments → production**.
+One or more secrets are not set in your GitHub environment. Verify all secrets and variables exist under Settings → Environments → production. Secrets and variables are configured in separate sections on that page.
 
 **`TabError: inconsistent use of tabs and spaces`**
 Open `main.py` in Notepad++ → Edit → Blank Operations → **Tab to Space**, then save and push.
