@@ -110,7 +110,7 @@ Always do a manual run first to confirm secrets are correctly configured before 
 
 Runs daily at **12:00 PM PDT (19:00 UTC)**.
 
-To change the schedule, edit `.github/workflows/ci-cd.yml`:
+To change the schedule, edit `.github/workflows/daily-checkin.yml`:
 
 ```yaml
 - cron: "0 19 * * *"    # daily at 12pm PDT (UTC-7)
