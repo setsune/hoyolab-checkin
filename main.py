@@ -51,9 +51,9 @@ EMAIL_RECIPIENT    = EMAIL_SENDER
 #  GAME CONFIGS
 # ─────────────────────────────────────────────
 
-GAME_GI_AID  = "e202102251931481"   # Genshin Impact — global constant
-GAME_HSR_AID = "e202303301540311"   # Honkai: Star Rail — global constant
-GAME_ZZZ_AID = "e202406031448091"   # Zenless Zone Zero — global constant
+GAME_GI_AID  = os.environ.get("GAME_GI_AID")
+GAME_HSR_AID = os.environ.get("GAME_HSR_AID")
+GAME_ZZZ_AID = os.environ.get("GAME_ZZZ_AID")
 
 GAME_CONFIGS = {
     "genshin": {
@@ -62,6 +62,7 @@ GAME_CONFIGS = {
         "params": {"lang": "en-us"},
         "body": {"act_id": GAME_GI_AID},
         "referer": f"https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id={GAME_GI_AID}",
+        "clienttype": "5",
     },
     "starrail": {
         "name": "Honkai: Star Rail",
@@ -69,6 +70,7 @@ GAME_CONFIGS = {
         "params": {"lang": "en-us"},
         "body": {"act_id": GAME_HSR_AID},
         "referer": f"https://act.hoyolab.com/bbs/event/signin/hkrpg/index.html?act_id={GAME_HSR_AID}",
+        "clienttype": "5",
     },
     "zzz": {
         "name": "Zenless Zone Zero",
@@ -76,6 +78,7 @@ GAME_CONFIGS = {
         "params": {"lang": "en-us", "act_id": GAME_ZZZ_AID},
         "body": {"act_id": GAME_ZZZ_AID},
         "referer": f"https://act.hoyolab.com/bbs/event/signin/zzz/{GAME_ZZZ_AID}.html?act_id={GAME_ZZZ_AID}",
+        "clienttype": "4",
     },
 }
 
@@ -121,7 +124,7 @@ def check_in(game_key: str):
         "Accept":            "application/json, text/plain, */*",
         "Content-Type":      "application/json;charset=utf-8",
         "Origin":            "https://act.hoyolab.com",
-        "x-rpc-client_type": "5" if game_key == "zzz" else "4",
+        "x-rpc-client_type": config["clienttype"],
         "x-rpc-platform":    "4",
         "x-rpc-language":    "en-us",
     }
