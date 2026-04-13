@@ -33,14 +33,14 @@ Go to **Settings → Environments → production** and add the following:
 | `ACCOUNT_MID` | HoYoLAB account MID (`ltmid_v2` / `account_mid_v2`) |
 | `ACCOUNT_TOKEN` | HoYoLAB account token (`ltoken_v2`) |
 | `EMAIL_APP_PASSWORD` | Gmail App Password for failure notifications |
-| `GAME_GI_AID` | Genshin Impact activity ID |
-| `GAME_HSR_AID` | Honkai: Star Rail activity ID |
-| `GAME_ZZZ_AID` | Zenless Zone Zero activity ID |
 
 #### Variables
 | Variable | Description |
 |---|---|
 | `EMAIL` | Gmail address for sending and receiving failure notifications |
+| `GAME_GI_AID` | Genshin Impact activity ID |
+| `GAME_HSR_AID` | Honkai: Star Rail activity ID |
+| `GAME_ZZZ_AID` | Zenless Zone Zero activity ID |
 
 ---
 
