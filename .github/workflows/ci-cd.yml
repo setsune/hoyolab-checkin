@@ -30,7 +30,7 @@ jobs:
           ACCOUNT_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}
           EMAIL: ${{ vars.EMAIL }}
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
-          GAME_GI_AID: ${{ secrets.GAME_GI_AID }}
-          GAME_HSR_AID: ${{ secrets.GAME_HSR_AID }}
-          GAME_ZZZ_AID: ${{ secrets.GAME_ZZZ_AID }}
+          GAME_GI_AID: ${{ vars.GAME_GI_AID }}
+          GAME_HSR_AID: ${{ vars.GAME_HSR_AID }}
+          GAME_ZZZ_AID: ${{ vars.GAME_ZZZ_AID }}
         run: python main.py
