@@ -3,8 +3,8 @@ name: HoYoLAB Daily Check-In
 
 on:
   schedule:
-    - cron: "0 19 * * *"    # daily at 12pm PDT (UTC-7)
-  workflow_dispatch:          # allows manual trigger from GitHub UI
+    - cron: "0 19 * * *"
+  workflow_dispatch:
 
 jobs:
   checkin:
