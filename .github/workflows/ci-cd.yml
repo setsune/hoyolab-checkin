@@ -21,16 +21,16 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests
+        run:  pip install requests
 
       - name: Run check-in script
         env:
-          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
-          ACCOUNT_MID: ${{ secrets.ACCOUNT_MID }}
-          ACCOUNT_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}
-          EMAIL: ${{ vars.EMAIL }}
+          ACCOUNT_ID:         ${{ secrets.ACCOUNT_ID }}
+          ACCOUNT_MID:        ${{ secrets.ACCOUNT_MID }}
+          ACCOUNT_TOKEN:      ${{ secrets.ACCOUNT_TOKEN }}
+          EMAIL:              ${{ vars.EMAIL }}
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
-          GAME_GI_AID: ${{ vars.GAME_GI_AID }}
-          GAME_HSR_AID: ${{ vars.GAME_HSR_AID }}
-          GAME_ZZZ_AID: ${{ vars.GAME_ZZZ_AID }}
+          GAME_GI_AID:        ${{ vars.GAME_GI_AID }}
+          GAME_HSR_AID:       ${{ vars.GAME_HSR_AID }}
+          GAME_ZZZ_AID:       ${{ vars.GAME_ZZZ_AID }}
         run: python main.py
