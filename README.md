@@ -9,6 +9,7 @@ Automatically checks in to HoYoLAB daily for Genshin Impact, Honkai: Star Rail, 
 - Daily automated check-in via GitHub Actions cron schedule
 - Supports Genshin Impact, Honkai: Star Rail, and Zenless Zone Zero
 - Email notification on check-in failure
+- Monthly keepalive workflow to prevent GitHub from disabling scheduled workflows
 - Secrets managed securely via GitHub Environment secrets
 
 ---
@@ -119,6 +120,17 @@ To change the schedule, edit `.github/workflows/ci-cd.yml`:
 
 ---
 
+## Keepalive
+
+GitHub automatically disables scheduled workflows after **60 days of repository inactivity**. The keepalive workflow prevents this by running on the 1st and 15th of each month to:
+
+1. Re-enable the check-in workflow via the GitHub API
+2. Push an empty commit to keep the repository active
+
+This runs automatically and requires no manual intervention. You can also trigger it manually from the **Actions** tab if needed.
+
+---
+
 ## Email Notifications
 
 You will receive two types of notifications:
@@ -169,7 +181,8 @@ hoyolab-checkin/
 ├── .gitignore
 └── .github/
     └── workflows/
-        └── ci-cd.yml              # GitHub Actions workflow
+        ├── ci-cd.yml              # daily check-in workflow
+        └── keepalive.yml          # keeps workflows active
 ```
 
 ---
@@ -180,10 +193,10 @@ hoyolab-checkin/
 Your cookie has expired. Repeat step 3 to get a fresh cookie and update your GitHub secrets.
 
 **Workflow not triggering on schedule**
-GitHub disables scheduled workflows after 60 days of repository inactivity. Go to Actions tab and click **Enable workflow**.
+GitHub disables scheduled workflows after 60 days of repository inactivity. The keepalive workflow handles this automatically, but you can also go to the Actions tab and click **Enable workflow** to re-enable it manually.
 
 **`Missing account secrets` error**
-One or more secrets are not set in your GitHub environment. Verify all secrets and variables exist under Settings → Environments → production. Secrets and variables are configured in separate sections on that page.
+One or more secrets or variables are not set in your GitHub environment. Verify all secrets **and variables** exist under **Settings → Environments → production**. Secrets and variables are configured in separate sections on that page.
 
 **`TabError: inconsistent use of tabs and spaces`**
 Open `main.py` in Notepad++ → Edit → Blank Operations → **Tab to Space**, then save and push.
