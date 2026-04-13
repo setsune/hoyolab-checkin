@@ -181,8 +181,8 @@ hoyolab-checkin/
 ├── .gitignore
 └── .github/
     └── workflows/
-        ├── ci-cd.yml              # daily check-in workflow
-        └── keepalive.yml          # keeps workflows active
+        ├── daily-checkin.yml      # daily check-in workflow
+        └── keep-alive.yml         # keeps workflows active
 ```
 
 ---
